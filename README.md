@@ -7,6 +7,15 @@ Contact: aidan.comiskey@columbia.edu
 
 This repository contains raw UV/vis absorbance spectra, experimental parameters, and curvefitting parameters for a series of boronic acid-diol titrations. It also contains the code used to analyze this data, along with the output files, including plots and tables. The data analysis may be reproduced by running main.py.
 
+
+## Data
+The contents of the Data directory are as follows:
+* Spectra - A directory containing unprocessed UV/vis spectra files (.csv) by titration
+* direct_experimental_values.xlsx - Fitted values for direct titrations (i.e. between a boronic acid and indicator) to be used when fitting IDA titration isotherms
+* experimental_parameters.csv - Information regarding how each titration experiment was conducted (concentrations used, solvent, identity of host and guest, etc.)
+* fit_parameters.csv - Settings for fitting each isotherm (Whether indicator concentration was held constant, fitting algorithm, wavelengths analyzed, initial guess for Ka being fit and molar extinction coefficients, wavelengths analyzed, etc.)
+* solvent_params.csv - Solvent parameters for analysis of solvent-mediated Ka trends
+
 ## Running the code
 ### Necessary Packages:
 The following packages must be installed in the virtual environment for the code to be successfully executed: cycler, lmfit, matplotlib, numpy,  openpyxl, pandas, scipy, sklearn, statsmodels, and tqdm.
@@ -30,10 +39,3 @@ The data analysis can be rerun in two ways: with or without refitting all titrat
 
 To rerun the analysis, main.py must be executed. Output files will then populate their corresponding directories (note that Plots will only be populated if titrations are refit). 
 
-## Data
-The contents of the Data directory are as follows:
-* Spectra - A directory containing unprocessed UV/vis spectra files (.csv) by titration
-* direct_experimental_values.xlsx - Fitted values for direct titrations (i.e. between a boronic acid and indicator) to be used when fitting IDA titration isotherms
-* experimental_parameters.csv - Information regarding how each titration experiment was conducted (concentrations used, solvent, identity of host and guest, etc.)
-* fit_parameters.csv - Settings for fitting each isotherm (Whether indicator concentration was held constant, fitting algorithm, wavelengths analyzed, initial guess for Ka being fit and molar extinction coefficients, wavelengths analyzed, etc.)
-* solvent_params.csv - Solvent parameters for analysis of solvent-mediated Ka trends
