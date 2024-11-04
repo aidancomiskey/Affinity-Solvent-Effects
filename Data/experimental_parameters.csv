@@ -1,0 +1,33 @@
+﻿Experiment,Solvent,host,guest,indicator,g_titrant,host_concentration,indicator_concentration,experimental_k_i,type,titration_method,Status
+174,MeOH,,ompPBA,Alizarin,0.01,,0.0001,,Direct,cuvette,Final Value
+169,Water,,ompPBA,ARS,0.005,,0.0001,,Direct,cuvette,Final Value
+168,Water,,PBA,ARS,0.005,,0.0001,,Direct,cuvette,Final Value
+159,DMF,,ompPBA,Alizarin,0.005,,0.0001,,Direct,cuvette,Final Value
+157,DMF,,PBA,Alizarin,0.005,,0.0001,,Direct,cuvette,Final Value
+149,Acetone,,ompPBA,Alizarin,0.005,,0.00015,,Direct,cuvette,Final Value
+147,Acetone,,PBA,Alizarin,0.005,,0.00015,,Direct,cuvette,Final Value
+139,MeCN,,ompPBA,Alizarin,0.005,,0.0001,,Direct,cuvette,Final Value
+129,MeOH,,PBA,Alizarin,0.005,,0.0001,,Direct,cuvette,Final Value
+93,MeCN,,PBA,Alizarin,0.002,,0.0001,,Direct,cuvette,Final Value
+177a,MeOH,ompPBA,Catechol,Alizarin,0.05,0.001,0.0001,1.32E+03,IDA,vial,Final Value
+177b,MeOH,ompPBA,Hydrobenzoin,Alizarin,0.05,0.001,0.0001,1.32E+03,IDA,vial,Final Value
+178a,DMF,PBA,Catechol,Alizarin,0.0175,0.000175,0.0001,2.24E+04,IDA,vial,Final Value
+178b,DMF,PBA,Hydrobenzoin,Alizarin,0.0175,0.000175,0.0001,2.24E+04,IDA,vial,Final Value
+180a,DMF,ompPBA,Catechol,Alizarin,0.014,0.00014,0.0001,1.15E+04,IDA,vial,Final Value
+180b,DMF,ompPBA,Hydrobenzoin,Alizarin,0.014,0.00014,0.0001,1.15E+04,IDA,vial,Final Value
+181a,MeCN,PBA,Hydrobenzoin,Alizarin,0.014,0.00014,0.0001,1.65E+05,IDA,vial,Final Value
+181b,MeCN,ompPBA,Hydrobenzoin,Alizarin,0.0125,0.000125,0.0001,1.92E+05,IDA,vial,Final Value
+182a,Acetone,PBA,Hydrobenzoin,Alizarin,0.072,0.00072,0.00012,6.86E+03,IDA,vial,Final Value
+182b,Acetone,ompPBA,Hydrobenzoin,Alizarin,0.018,0.00018,0.00012,6.10E+04,IDA,vial,Final Value
+183a,MeCN,PBA,Catechol,Alizarin,0.014,0.00014,0.0001,1.65E+05,IDA,vial,Final Value
+183b,MeCN,ompPBA,Catechol,Alizarin,0.0125,0.000125,0.0001,1.92E+05,IDA,vial,Final Value
+184a,Acetone,PBA,Catechol,Alizarin,0.072,0.00072,0.00012,6.86E+03,IDA,vial,Final Value
+184b,Acetone,ompPBA,Catechol,Alizarin,0.018,0.00018,0.00012,6.10E+04,IDA,vial,Final Value
+176,Acetone,PBA,Catechol,Alizarin,0.05,0.0008,0.00012,6.86E+03,IDA,cuvette,Redone (old value)
+171,Water,ompPBA,Catechol,ARS,0.065,0.0013,0.0001,1429,IDA,cuvette,Final Value
+170,Water,PBA,Catechol,ARS,0.025,0.0005,0.0001,2.81E+03,IDA,cuvette,Final Value
+151,Acetone,ompPBA,Catechol,Alizarin,0.0105,0.00021,0.00015,6.10E+04,IDA,cuvette,Redone (old value)
+141,MeCN,ompPBA,Catechol,Alizarin,0.006,0.00012,0.0001,1.92E+05,IDA,cuvette,Redone (old value)
+135,MeOH,PBA,Hydrobenzoin,Alizarin,0.02,0.0004,0.0001,1.65E+04,IDA,cuvette,Final Value
+133,MeOH,PBA,Catechol,Alizarin,0.02,0.0004,0.0001,1.65E+04,IDA,cuvette,Final Value
+97,MeCN,PBA,Catechol,Alizarin,0.006,0.00012,0.0001,1.65E+05,IDA,cuvette,Redone (old value)
