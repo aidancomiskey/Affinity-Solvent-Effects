@@ -6,7 +6,8 @@ Used for analysis of boronic acid-diol titrations and their corresponding solven
 **Contact:** aidan.comiskey@columbia.edu
 
 **Corresponding Manuscript**: Solvent Effects in Boronic Acid-Diol Binding \
-**Manuscript Authors:** Aidan Comiskey (Columbia University), Dr. Eric V Anslyn (University of Texas at Austin)
+**Manuscript Authors:** Aidan Comiskey (Columbia University), Dr. Eric V Anslyn (University of Texas at Austin) \
+**How to cite this material:** See original manuscript. Repository DOI:10.5281/zenodo.14032138
 
 This repository contains raw UV/vis absorbance spectra, experimental parameters, and curvefitting parameters for a series of boronic acid-diol titrations. It also contains the code used to analyze this data, along with the output files, including plots and tables. The data analysis may be reproduced by running main.py.
 
