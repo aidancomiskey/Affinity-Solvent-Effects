@@ -1,7 +1,7 @@
 import pandas as pd
 from solvent_correlation import single_regression, multi_regression
 
-SINGLE_REGRESSORS = ["Dielectric", "Z", "ET30", "Pi*", "alpha", "beta"]
+SINGLE_REGRESSORS = ["Dielectric", "invDielectric", "Z", "ET30", "Pi*", "alpha", "beta", "Kirkwood"]
 
 # Combines SINGLE_REGRESSORS into pairs
 REGRESSOR_PAIRS = []
@@ -76,7 +76,7 @@ def get_regressions(titration_group, standardize_multi=True, tables_filepath="Ta
 
 
 # Get summary table and contour plots for model by predictors:
-def get_model_summary(titration_group, predictors, plot=False):
+def get_model_summary(titration_group, predictors, plot=False, plot_predicted_actual=False):
     model_summary_df = model_summary_table(predictors=predictors, titration_group=titration_group)
     model_summary_filename = f"Tables/Model Summaries/{predictors[0]} & {predictors[1]}.xlsx"
     model_summary_df.to_excel(model_summary_filename)
@@ -84,6 +84,9 @@ def get_model_summary(titration_group, predictors, plot=False):
 
     # Get 3D plots of model
     if plot:
-        for style in ["contour"]:
+        for style in ["contour", "3d"]:
             multi_regression(titration_group=titration_group, predictors=predictors,
                              plot_3D=True, plot_style=style, standardize=False)
+    if plot_predicted_actual:
+        multi_regression(titration_group=titration_group, predictors=predictors, plot_predicted_actual=True,
+                         standardize=False)
