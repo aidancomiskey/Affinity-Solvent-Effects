@@ -15,8 +15,9 @@ SPECTRUM_FORMAT = "Data/Spectra/AC-{}.csv"
 # Runtime Parameters, set to preference:
 PRINT_REPORT = True  # Prints fit reports as each titration is fitted
 CORRECT_BASELINE = True  # Corrects titration spectrum baseline across all wavelengths such that Abs @ 750 nm = 0
-REFIT = True  # Runs fitting process again; if False, previously-fitted values from SAVED_FITS FILENAME are used
-SAVED_FITS_FILENAME = "Saved Titration Fits/2024-11-03 18:20:33.529232"
+REFIT = False  # Runs fitting process again; if False, previously-fitted values from SAVED_FITS FILENAME are used
+SAVED_FITS_FILENAME = "Saved Titration Fits/2024-11-03 21:07:45.861605"
+#"Saved Titration Fits/2024-11-03 18:20:33.529232"
 
 if REFIT:
     update_direct_exp_values_excel(direct_titrations=DIRECT_LIST, experimental_params_file=EXPERIMENTAL_PARAMS,
@@ -36,7 +37,10 @@ else:
 # Saves fit output table, solvent param regression value table, and full summary of multivariate for given predictors
 titrations.get_fit_params_tables(direct_titration_list=DIRECT_LIST, IDA_titration_list=IDA_LIST)
 titrations.get_regressions(standardize_multi=True)
-titrations.get_model_summary(predictors=('Dielectric', 'beta'))
+titrations.get_model_summary(predictors=('invDielectric', 'beta'), plot=True)
+
+for pair in [('invDielectric', 'beta'), ('Kirkwood', 'beta'), ('Dielectric', 'beta'), ('Z', 'ET30')]:
+    titrations.get_model_summary(predictors=pair, plot=False, plot_predicted_actual=True)
 
 if REFIT:
     titrations.pickle()  # Saves fitted values (in titration object) for later analysis
