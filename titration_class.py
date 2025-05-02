@@ -5,7 +5,7 @@ import pandas as pd
 from lmfit import minimize, report_fit
 from datetime import datetime
 from fitter import construct_fit_params, global_residuals, model_absorbances_global
-from plot import plot_spectra, plot_fit, plot_together, title_plot
+from plot import plot_spectra, plot_fit, plot_together, title_plot, plot_pred_vs_actual
 from tables import get_fit_params_table, get_regressions, get_model_summary
 
 
@@ -197,5 +197,6 @@ class TitrationGroup:
         get_regressions(titration_group=self, standardize_multi=standardize_multi)
 
     # Get model summary from predictors
-    def get_model_summary(self, predictors):
-        get_model_summary(titration_group=self, predictors=predictors, plot=True)
+    def get_model_summary(self, predictors, plot, plot_predicted_actual=False):
+        get_model_summary(titration_group=self, predictors=predictors,
+                          plot=plot, plot_predicted_actual=plot_predicted_actual)
