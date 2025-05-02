@@ -125,7 +125,7 @@ def plot_multivariate(X, y, p1, p1_coeff, p2, p2_coeff, intercept, y_label, titl
         x1dim = np.linspace(-2, 2, 100)
         x2dim = np.linspace(-1.5, 1.5, 100)
     else:
-        x1dim = np.linspace(20, 80, 100)
+        x1dim = np.linspace(0, 0.05, 100)
         x2dim = np.linspace(0.2, 0.8, 100)
     meshx1, meshx2 = np.meshgrid(x1dim, x2dim)
     predict_y = (p1_coeff * meshx1 + p2_coeff * meshx2 + intercept)
@@ -136,24 +136,26 @@ def plot_multivariate(X, y, p1, p1_coeff, p2, p2_coeff, intercept, y_label, titl
         ax.set_title(title)
         ax.scatter(X[p1], X[p2], y)
         ax.plot_surface(meshx1, meshx2, predict_y, alpha=0.2, color=[0, 1, 0])
-        ax.set_xlim(20, 80)
+        ax.set_xlim(0, 0.05)
         ax.set_ylim(0.2, 0.8)
-        ax.set_zlim(0, 25)
+        ax.set_zlim(2, 18)
         ax.set_xlabel(p1)
         ax.set_ylabel(p2)
-        ax.set_zlabel(y_label)
+        ax.set_zlabel("ln(K)")
         plt.show()
 
     elif style == "contour":
+        print(f'Contour Plot \n\n \t p1 coeff: {p1_coeff}, p2 coeff: {p2_coeff}, intercept: {intercept}')
         fig = plt.figure(figsize=(4, 3))
         ax = fig.add_subplot()
 
         contour = ax.contourf(meshx1, meshx2, predict_y, levels=50)
-        fig.colorbar(contour, ax=ax, label=y_label)
+        fig.colorbar(contour, ax=ax, label="ln(K)")
 
         ax.scatter(X[p1], X[p2], c=y, s=80, edgecolors="k", norm=contour.norm)
 
-        ax.set_xlabel(p1, labelpad=10)
+        p1_label = p1.replace("invDielectric", "1/ε")
+        ax.set_xlabel(p1_label, labelpad=10)
         p2_label = "β" if p2 == "beta" else p2
         ax.set_ylabel(p2_label, rotation="horizontal", labelpad=15)
         ax.set_title(title, pad=10)
@@ -162,3 +164,32 @@ def plot_multivariate(X, y, p1, p1_coeff, p2, p2_coeff, intercept, y_label, titl
 
         plt.savefig(filename, dpi=300)
         plt.close()
+
+def plot_pred_vs_actual(X, y, p1, p1_coeff, p2, p2_coeff, intercept, response_variable, pair_text, r_squared=None,
+                        legend=None):
+    fig = plt.figure(figsize=(3,3))
+    ax = fig.add_subplot()
+
+    if response_variable == "K_values":
+        ax.ticklabel_format(style="sci", scilimits=(-3,3), axis='both', useMathText=True)
+
+    pred_y = p1_coeff * X[p1] + p2_coeff * X[p2] + intercept
+    actual_y_range = np.linspace(start=y.min(), stop=y.max(), num=20)
+
+    ax.plot(actual_y_range, actual_y_range, "k--")
+
+    marker_colors = {"MeCN":"Red", "DMF":"Green", "Water":"Blue", "MeOH":"Purple", "Acetone":"Orange"}
+    for i in range(len(y)):
+        solvent = legend[i]
+        ax.scatter(y[i], pred_y[i], c=marker_colors[solvent], label=solvent)
+    ax.set_ylabel("Predicted " + response_variable.replace("_values", ""))
+    ax.set_xlabel("Experimental "+ response_variable.replace("_values", ""))
+    titlep1 = p1.replace("invDielectric", "1/ε")
+    title = titlep1 + " & " + p2.replace("beta", "β")
+    ax.set_title(title)
+    fig.tight_layout(rect=(0, 0, 1, 1))
+    ax.text(0.03,0.9,f'R{SUPERSCRIPT_MAP["2"]} = {r_squared:.3f}', transform=ax.transAxes)
+    plt.savefig(f"Plots/Model/pred_vs_actual/{response_variable.replace("_values", "")}/{pair_text}/{p1 + " & β"}.png",
+                dpi=300)
+    plt.close()
+
